@@ -2,6 +2,7 @@
 function Thermostat() {
 
   this.temp = null;
+  this.minimumTemp = 10
 
 }
 
@@ -13,35 +14,14 @@ Thermostat.prototype.increaseTemp = function() {
   this.temp++
 };
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// Player.prototype.play = function(song) {
-//   this.currentlyPlayingSong = song;
-//   this.isPlaying = true;
-// };
-//
-// Player.prototype.pause = function() {
-//   this.isPlaying = false;
-// };
-//
-// Player.prototype.resume = function() {
-//   if (this.isPlaying) {
-//     throw new Error("song is already playing");
-//   }
-//
-//   this.isPlaying = true;
-// };
-//
-// Player.prototype.makeFavorite = function() {
-//   this.currentlyPlayingSong.persistFavoriteStatus(true);
-// };
+Thermostat.prototype.decreaseTemp = function() {
+  // console.log(this.temp)
+  if (this.temp <= this.minimumTemp) {
+    // console.log(this.temp)
+    throw new Error("Cannot reduce temp lower than 10");
+  }
+  else {
+    this.temp--;
+  };
+
+};
