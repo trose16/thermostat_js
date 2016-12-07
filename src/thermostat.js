@@ -2,7 +2,9 @@
 function Thermostat() {
 
   this.temp = null;
-  this.minimumTemp = 10
+  this.minimumTemp = 10;
+  this.powerSaving = true;
+  this.maximumTemp = 25
 
 }
 
@@ -21,5 +23,19 @@ Thermostat.prototype.decreaseTemp = function() {
   else {
     this.temp--;
   };
+
+Thermostat.prototype.powerSavingOn = function() {
+  this.maximumTemp = 25
+  if (this.temp > this.maximumTemp) {
+    this.temp = this.maximumTemp;
+  }
+  this.powerSaving = true;
+};
+
+Thermostat.prototype.powerSavingOff = function() {
+  this.maximumTemp = 32;
+  this.powerSaving = false
+};
+
 
 };

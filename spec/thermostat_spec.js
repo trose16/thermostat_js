@@ -32,4 +32,27 @@ describe("Thermostat", function() {
       thermostat.startTemp(10);
       expect(function(){thermostat.decreaseTemp();}).toThrowError("Cannot reduce temp lower than 10")
     });
+
+    it('checks if powersaving is on', function() {
+      thermostat.powerSavingOn();
+      expect(thermostat.powerSaving).toBe(true)
+    });
+
+    it('if powersaving is on maximum temp is 25', function() {
+      expect(thermostat.maximumTemp).toEqual(25)
+    });
+
+    it('if powersaving is off and temp is above maximum temp reduce to maximum temp', function() {
+      thermostat.startTemp(26);
+      thermostat.powerSavingOn()
+      expect(thermostat.temp).toEqual(25)
+    });
+
+    it('if powersaving is off maximum temp is 32', function() {
+      thermostat.powerSavingOff();
+      expect(thermostat.maximumTemp).toEqual(32)
+    });
+
+
+
 });
