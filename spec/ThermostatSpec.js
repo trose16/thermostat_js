@@ -2,7 +2,6 @@ describe("Thermostat", function(){
     var thermostat;
     beforeEach(function(){
       thermostat = new Thermostat()
-      spyOn(thermostat, 'isInPowerSaverMode').and.returnValue(true)
     });
 
     describe("thermostat starts with:", function() {
@@ -34,10 +33,14 @@ describe("Thermostat", function(){
 
     describe('when power saver mode is on', function() {
       it("should have a maximum temperature of 25 degrees", function() {
-        thermostat.isInPowerSaverMode
-        console.log(thermostat.isInPowerSaverMode())
         expect(thermostat.up(6)).toEqual(25)
       });
     });
+    describe("when power saver mode is off",function(){
 
+      it("should have a maximum temperature of 32",function(){
+        thermostat.isInPowerSaverMode = false
+        expect(thermostat.up(13)).toEqual(32)
+        });
+    });
 });

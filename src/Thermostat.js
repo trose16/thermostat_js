@@ -5,10 +5,13 @@ var Thermostat = function() {
 
 Thermostat.prototype.up = function(number) {
    this.currentTemperature += number;
-   if(this.isInPowerSaverMode() === true && this.currentTemperature > 25){
+   if(this.isInPowerSaverMode && this.currentTemperature > 25){
      this.currentTemperature = 25;
      return this.currentTemperature;
-   } else {
+   } else if(this.isInPowerSaverMode === false && this.currentTemperature > 32){
+      this.currentTemperature = 32;
+      return this.currentTemperature;
+    } else {
    return this.currentTemperature;
  }
 };
