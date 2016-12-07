@@ -15,9 +15,7 @@ Thermostat.prototype.increaseTemp = function() {
 };
 
 Thermostat.prototype.decreaseTemp = function() {
-  // console.log(this.temp)
   if (this.temp <= this.minimumTemp) {
-    // console.log(this.temp)
     throw new Error("Cannot reduce temp lower than 10");
   }
   else {

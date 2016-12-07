@@ -29,8 +29,7 @@ describe("Thermostat", function() {
     });
 
     it('will throw an error when you try to decrease below minimum temp', function() {
-      spyOn(thermostat, 'temp').andReturn(10)
-      console.log("spec" + thermostat.temp);
-      expect(function(){thermostat.decreaseTemp;}).toThrowError("Cannot reduce temp lower than 10")
+      thermostat.startTemp(10);
+      expect(function(){thermostat.decreaseTemp();}).toThrowError("Cannot reduce temp lower than 10")
     });
 });
