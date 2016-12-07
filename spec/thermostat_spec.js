@@ -53,6 +53,10 @@ describe("Thermostat", function() {
       expect(thermostat.maximumTemp).toEqual(32)
     });
 
+    it('will throw an error when you try to increase above minimum temp', function() {
+      thermostat.startTemp(25);
+      expect(function(){thermostat.increaseTemp();}).toThrowError("Cannot increase temp above maximum")
+    });
 
 
 });
