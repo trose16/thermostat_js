@@ -43,4 +43,9 @@ describe("Thermostat", function(){
         expect(thermostat.up(13)).toEqual(32)
         });
     });
+    describe("hit a reset button:",function(){
+      it("that resets temperature back to 20",function(){
+        expect(thermostat.reset()).toEqual(this.DEFAULT_TEMP)
+      });
+    });
 });

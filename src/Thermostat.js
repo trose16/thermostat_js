@@ -1,5 +1,6 @@
 var Thermostat = function() {
-  this.currentTemperature = 20;
+  const DEFAULT_TEMP = 20;
+  this.currentTemperature = DEFAULT_TEMP;
   this.isInPowerSaverMode = true;
 };
 
@@ -24,4 +25,9 @@ Thermostat.prototype.down = function(number) {
   } else {
   return this.currentTemperature;
   }
+};
+
+Thermostat.prototype.reset = function() {
+  this.currentTemperature = this.DEFAULT_TEMP;
+  return this.currentTemperature;
 };
