@@ -48,4 +48,21 @@ describe("Thermostat", function(){
         expect(thermostat.reset()).toEqual(this.DEFAULT_TEMP)
       });
     });
+
+    describe("should return current energy use report", function() {
+      it("should return 'low-usage' if current temperature if below 18", function() {
+        thermostat.down(3);
+        expect(thermostat.energyReport()).toEqual('low-usage')
+      });
+
+      it("should return 'medium-usage' if current temperature is between 18 and 24", function() {
+        expect(thermostat.energyReport()).toEqual('medium-usage')
+      });
+
+      it("should return 'high-usage' if current temperature is above 24", function() {
+        thermostat.up(5);
+        expect(thermostat.energyReport()).toEqual('high-usage')
+      });
+    });
+    
 });

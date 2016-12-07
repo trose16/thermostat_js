@@ -31,3 +31,13 @@ Thermostat.prototype.reset = function() {
   this.currentTemperature = this.DEFAULT_TEMP;
   return this.currentTemperature;
 };
+
+Thermostat.prototype.energyReport = function() {
+  if(this.currentTemperature < 18){
+    return 'low-usage';
+  } else if(this.currentTemperature > 24 ) {
+    return 'high-usage';
+  } else {
+    return 'medium-usage';
+  }
+};
