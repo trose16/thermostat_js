@@ -8,19 +8,19 @@
 
 <body>
 
-  <script src="/jquery-3.1.1.js"></script>
   <a href="http://jquery.com/">jQuery</a>
-
+  <script src="jquery-3.1.1.js"></script>
   <script>
   $(document).ready(function() {
     $("a").click(function(event){
-      alert('Who dun whaaaat?!');
+      alert("Who dun whaaaat?!");
+      event.preventDefault();
     });
   });
   </script>
 
   <section>
-    <h1 id="temperature">James's Thermostat</h1>
+    <h1 id="temperature">"James's Thermostat"</h1>
     <p>
       <button id="temperature-up">+</button>
       <button id="temperature-down">-</button>
@@ -29,5 +29,6 @@
       <button id='power-saving-toggle'>PSM Toggle</button>
     </p>
   </section>
+  <script src="src/Thermostat.js"></script>
 </body>
 </html>
