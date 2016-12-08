@@ -3,7 +3,7 @@
 }
 
 .medium-usage {
-  color: black;
+  color: orange;
 }
 
 .high-usage {
@@ -16,6 +16,20 @@ body {
   width: 40em;
   border: 3px solid red;
   text-align: center;
+}
+
+h1 {
+  margin: 15px 0 15px 0;
+  font-size: 50px;
+}
+
+div#display {
+  border: 2px solid black;
+  background: rgba(109, 103, 103, 0.36);
+  width: 20em;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
 }
 
 input#city {
