@@ -19,9 +19,9 @@ describe("Thermostat", function() {
     });
 
     it('can decrease the temperature by 1', function() {
-      previousTemp = thermostat.temp
+      thermostat.startTemp(25)
       thermostat.decreaseTemp()
-      expect(thermostat.temp).toBeLessThan(previousTemp)
+      expect(thermostat.temp).toEqual(24)
     });
 
     it('has a minimum temperature of 10', function () {
@@ -53,10 +53,37 @@ describe("Thermostat", function() {
       expect(thermostat.maximumTemp).toEqual(32)
     });
 
-    it('will throw an error when you try to increase above minimum temp', function() {
+    it('if powersaving is off maximum temp is 25', function() {
+      thermostat.powerSavingOn();
+      expect(thermostat.maximumTemp).toEqual(25)
+    });
+
+    it('it will throw an error when you try to increase above maximum temp and powersaving is on', function() {
+      thermostat.powerSavingOn();
       thermostat.startTemp(25);
       expect(function(){thermostat.increaseTemp();}).toThrowError("Cannot increase temp above maximum")
     });
 
+    it('will throw an error when you try to increase above maximum temp and powersaving is off', function() {
+      thermostat.powerSavingOff();
+      thermostat.startTemp(32);
+      expect(function(){thermostat.increaseTemp();}).toThrowError("Cannot increase temp above maximum")
+    });
+
+    it('will return low-usage for temperatures below 18 degrees', function(){
+      thermostat.startTemp(17);
+      expect(thermostat.energyUsage()).toEqual('low-usage')
+      console.log()
+    });
+
+    it('will return medium-usage for temperatures below 25 degrees', function(){
+      thermostat.startTemp(24);
+      expect(thermostat.energyUsage()).toEqual('medium-usage')
+    });
+
+    it('will return high-usage for temperatures above 25 degrees', function(){
+      thermostat.startTemp(26);
+      expect(thermostat.energyUsage()).toEqual('high-usage')
+    });
 
 });
