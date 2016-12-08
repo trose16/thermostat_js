@@ -7,9 +7,6 @@ $(document).ready(function() {
     $( this ).fadeOut( "slow" );
   });
 
-
-
-
 });
 
 $(document).ready(function() {
@@ -18,8 +15,8 @@ $(document).ready(function() {
 
   function displayTemperature() {
     $('#temperature').text(thermostat.currentTemperature + "°C");
+    $('#temperature').attr('class', thermostat.energyReport());
   }
-
 
   $('#temperature-up').click(function() {
     thermostat.up();
@@ -36,5 +33,10 @@ $(document).ready(function() {
     displayTemperature();
   })
 
+  $('#power-saving-toggle').click(function() {
+    // thermostat.powerSaverMode();
+    $('#power-saving-status').text(thermostat.powerSaverMode());
+    displayTemperature();
+  });
 
 });

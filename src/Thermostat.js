@@ -41,3 +41,19 @@ Thermostat.prototype.energyReport = function() {
     return 'medium-usage';
   }
 };
+
+Thermostat.prototype.powerSaverMode = function() {
+  if(this.isInPowerSaverMode){
+    this.isInPowerSaverMode = false;
+    return "off"
+  } else {
+      if(this.currentTemperature > 25){
+        this.currentTemperature = 25;
+        this.isInPowerSaverMode = true;
+        return "on"
+      } else {
+        this.isInPowerSaverMode = true;
+        return "on"
+    }
+  }
+};
