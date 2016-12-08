@@ -9,7 +9,7 @@ function Thermostat() {
 }
 
 Thermostat.prototype.startTemp = function(startTemp) {
-  this.temp = startTemp
+  this.temp = startTemp;
 };
 
 Thermostat.prototype.increaseTemp = function() {
@@ -54,5 +54,8 @@ Thermostat.prototype.energyUsage = function() {
   else {
     return 'high-usage';
   };
-
 };
+  Thermostat.prototype.resetTemp = function(){
+   this.temp = 20;
+   return this.temp;
+  };
