@@ -34,9 +34,14 @@ $(document).ready(function() {
   })
 
   $('#power-saving-toggle').click(function() {
-    // thermostat.powerSaverMode();
     $('#power-saving-status').text(thermostat.powerSaverMode());
     displayTemperature();
   });
+
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=f7940fe5cc40b53866520aa94b9c285b&units=metric', function(data) {
+    $('#weather').text("Outside temperature: " + Math.round(data.main.temp) + "°C");
+  })
+
+
 
 });
