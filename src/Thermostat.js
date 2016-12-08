@@ -1,10 +1,10 @@
+const DEFAULT_TEMP = 20;
 var Thermostat = function() {
-  const DEFAULT_TEMP = 20;
   this.currentTemperature = DEFAULT_TEMP;
   this.isInPowerSaverMode = true;
 };
 
-Thermostat.prototype.up = function(number) {
+Thermostat.prototype.up = function(number=1) {
    this.currentTemperature += number;
    if(this.isInPowerSaverMode && this.currentTemperature > 25){
      this.currentTemperature = 25;
@@ -17,7 +17,7 @@ Thermostat.prototype.up = function(number) {
  }
 };
 
-Thermostat.prototype.down = function(number) {
+Thermostat.prototype.down = function(number=1) {
   this.currentTemperature -= number;
   if(this.currentTemperature < 10) {
     this.currentTemperature = 10;
@@ -28,7 +28,7 @@ Thermostat.prototype.down = function(number) {
 };
 
 Thermostat.prototype.reset = function() {
-  this.currentTemperature = this.DEFAULT_TEMP;
+  this.currentTemperature = DEFAULT_TEMP;
   return this.currentTemperature;
 };
 
