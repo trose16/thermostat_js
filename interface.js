@@ -1,15 +1,4 @@
 $(document).ready(function() {
-
-  $( "a" ).addClass( "test" );
-  $("a").click(function(event){
-    alert("Who dun whaaaat?!");
-    event.preventDefault();
-    $( this ).fadeOut( "slow" );
-  });
-
-});
-
-$(document).ready(function() {
   var thermostat = new Thermostat();
   displayTemperature()
 
@@ -39,9 +28,14 @@ $(document).ready(function() {
   });
 
   $.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=f7940fe5cc40b53866520aa94b9c285b&units=metric', function(data) {
-    $('#weather').text("Outside temperature: " + Math.round(data.main.temp) + "°C");
+    $('#weather').text("Outside temperature in London: " + Math.round(data.main.temp) + "°C");
   })
 
-
-
+  $('#choose_city').submit(function() {
+    event.preventDefault();
+    var city = $('#city').val();
+    $.get("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=f7940fe5cc40b53866520aa94b9c285b&units=metric", function(data) {
+      $('#weather').text("Outside temperature in " + city + ": " + Math.round(data.main.temp) + "°C");
+    })
+  });
 });
