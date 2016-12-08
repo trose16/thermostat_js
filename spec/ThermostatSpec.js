@@ -1,7 +1,7 @@
 describe("Thermostat", function(){
     var thermostat;
     beforeEach(function(){
-      thermostat = new Thermostat()
+      thermostat = new Thermostat();
     });
 
     describe("thermostat starts with:", function() {
@@ -64,5 +64,5 @@ describe("Thermostat", function(){
         expect(thermostat.energyReport()).toEqual('high-usage')
       });
     });
-    
+
 });
