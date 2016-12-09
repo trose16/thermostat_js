@@ -99,6 +99,8 @@ GEM
     rspec-sinatra (0.1.2)
       templater (>= 1.0.0)
     rspec-support (3.5.0)
+    sinatra (1.0)
+      rack (>= 1.0)
     slop (3.6.0)
     stringex (1.5.1)
     templater (1.0.0)
@@ -119,6 +121,7 @@ DEPENDENCIES
   pry
   rspec
   rspec-sinatra
+  sinatra
 
 BUNDLED WITH
    1.13.6
