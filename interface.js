@@ -17,6 +17,20 @@ $(document).ready(function() {
       });
   })
 
+  $.get( "http://localhost:4567/", function( data ) {
+    $( ".result" ).html( data );
+    header('Access-Control-Allow-Origin: *');
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    alert( "Load was performed." );
+  });
+
+  $.get( 'file:///Users/teakowarfield-graham/makers_academy/javascript_week_5/thermostat/Thermostat.html', function( data ) {
+    $( ".result" ).html( data );
+    header('Access-Control-Allow-Origin: *');
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    alert( "Load was performed." );
+  });
+
   $('#temperature-down').click(function() {
     thermostat.down();
     displayTemperature();
