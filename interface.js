@@ -31,7 +31,7 @@ $(document).ready(function() {
     header('Access-Control-Allow-Origin: *');
     response.setHeader("Access-Control-Allow-Origin", "*");
     alert( "Load was performed." );
-  });
+  });A
 
 
 
